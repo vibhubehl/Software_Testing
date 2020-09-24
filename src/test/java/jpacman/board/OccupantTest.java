@@ -2,7 +2,6 @@ package jpacman.board;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -65,7 +64,28 @@ class OccupantTest {
      */
     @Test
     void testReoccupy() {
-        // Remove the following placeholder:
-        assertThat(unit).isNotNull();
+
+        Direction north = Direction.valueOf("NORTH");
+        Square sqr1 = new BasicSquare();
+        Square sqr2 = new BasicSquare();
+        //sqr2 = sqr1.getSquareAt(north);
+
+
+        // re-occupying
+        unit.occupy(sqr1);
+        unit.occupy(sqr2);
+        unit.occupy(sqr1);
+
+        // get current position
+        Square current = unit.getSquare();
+        assertThat(current).isEqualTo(sqr1);
+
+        // re-occupying
+        unit.occupy(sqr2);
+        unit.occupy(sqr2);
+
+        // get current position
+        current = unit.getSquare();
+        assertThat(current).isEqualTo(sqr2);
     }
 }
