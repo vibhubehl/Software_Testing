@@ -2,8 +2,10 @@ package jpacman.board;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 
 /**
  * Test suite to confirm that {@link Unit}s correctly (de)occupy squares.
@@ -31,8 +33,8 @@ class OccupantTest {
      */
     @Test
     void noStartSquare() {
-        // Remove the following placeholder:
-        assertThat(unit).isNotNull();
+        // Remove the following placeholder
+        assertThat(unit.hasSquare() == false);
     }
 
     /**
@@ -41,8 +43,20 @@ class OccupantTest {
      */
     @Test
     void testOccupy() {
-        // Remove the following placeholder:
-        assertThat(unit).isNotNull();
+        Square test_sqr = new BasicSquare();
+
+        // add unit to this square
+        unit.occupy(test_sqr);
+
+        // check if current unit and squares are associated
+        assertThat(unit.invariant());
+        assertThat(test_sqr.invariant());
+
+        // get current position
+        Square current = unit.getSquare();
+
+        assertThat(current == test_sqr);
+
     }
 
     /**
