@@ -44,3 +44,29 @@ Parts of the code are well tested, whereas others are left untested intentionall
     By automating tests, we decrease the execution time. We are also able to cover a large array of 
     tests with depth and scope impossible to achieve via manual testing. Automating tests results in 
     imporved software quality. 
+    
+LAB Smoke Test Excercise 
+
+4) DefaultPlayerInteractionMap and collissionInteractionMap have the least coverage at 0%.
+
+5) Game class is covered, at 85%
+    Yes Game class is covered by smoke test. On commenting out the line that invoked move class the smoke test failed. 
+    Smoke test uses method for testing purposes, but by commenting out we break the code. Smoke test is helpful in telling
+    where the error is. It shows that expected and actual values, as well as the filename and exactly which line is the problem.
+    
+6)  Again the smoke test failed. It was very difficult to find the error. I suppose this is because direction class is used
+    by many other classes. 
+    
+7)  The game class handles the main game using other classes. The level class intereacts with board and players on the board.
+    The board class interacts with square and units.
+
+
+Week of October 5:
+
+1)  Note that our tests always make use of “clean instances” of the class under test.  See Board-FactoryTest as an example: thesetUp()always instantiates a new BoardFactory instance.What are the advantages of such approach?(max 100 word)
+   
+   We make clean instanes to make sure that each test is executed independetly, without being affected by previous execution,
+   
+2)  JUnit and related libraries provide developers with different ways to do assertions. Some canbe better than others in specific contexts. Which one is a better assertion, supposing some inta? 1)assertEquals(1, a);or 2)assertTrue(1 == a)? Discuss the differencesbetween both assertions.(max 100 words)
+
+    The 1)assertEquals(1, a) is a better way of assertion, as it tells the user the actual and expected value in case the assertion fails. 
