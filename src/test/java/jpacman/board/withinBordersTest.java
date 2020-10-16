@@ -1,19 +1,12 @@
 package jpacman.board;
 
-import jpacman.board.Board;
-import jpacman.board.Square;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 
 
 public class withinBordersTest {
-
-    private static final int MAX_WIDTH = 2;
-    private static final int MAX_HEIGHT = 3;
 
     private final Square[][] grid = {
             { mock(Square.class), mock(Square.class), mock(Square.class) },
