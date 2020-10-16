@@ -36,7 +36,7 @@ public class InkyTest {
 
 
     @Test
-    // This test case checks for case where there is player more than 8 blocks away.
+    // This test case checks for case where there Inky is after Blinky which is after Player.
     void Inky_after_blinky(){
 
         level = mapP.parseMap(Arrays.asList("##############", "# I   B   P  #", "##############"));
@@ -49,7 +49,7 @@ public class InkyTest {
 
 
     @Test
-        // This test case checks for case where there is player more than 8 blocks away.
+        // This test case checks for case where there is player is in middle of Inky and Blinky.
     void player_middle(){
 
         level = mapP.parseMap(Arrays.asList("##############", "# I   P   B  #", "##############"));
