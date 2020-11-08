@@ -70,3 +70,18 @@ Week of October 5:
 2)  JUnit and related libraries provide developers with different ways to do assertions. Some canbe better than others in specific contexts. Which one is a better assertion, supposing some inta? 1)assertEquals(1, a);or 2)assertTrue(1 == a)? Discuss the differencesbetween both assertions.(max 100 words)
 
     The 1)assertEquals(1, a) is a better way of assertion, as it tells the user the actual and expected value in case the assertion fails. 
+    
+
+Week of October 26:
+
+1)  |   |   |   |   |   |   |   |   |
+    |---|---|---|---|---|---|---|---|
+    | Collider     | Ghost | Ghost   | Player   | Ghost   | Pellet  | Player   |  Pellet   |
+    | Collidee     | Ghost | Player  | Ghost    | Pellet  | Ghost   | Pellet   |  Player   |
+    | Consequence  |  NON  |G.OVER   |  G.OVER  |   NON   | NON |   Points += 10| Points += 10 |
+    
+
+    For the code coverage, I achieve 33% class coverage 30% method and 27% line coverage.
+    Alone with PlayerCollion test suite. Player collission only has 8% class coverage and 10% 
+    method coverage. DefaultPlayerMapInteraction test suite significantly increases coverage. 
+    It alone covers 25% class and 20% method.
