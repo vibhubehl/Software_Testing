@@ -84,4 +84,27 @@ Week of October 26:
     For the code coverage, I achieve 33% class coverage 30% method and 27% line coverage.
     Alone with PlayerCollion test suite. Player collission only has 8% class coverage and 10% 
     method coverage. DefaultPlayerMapInteraction test suite significantly increases coverage. 
-    It alone covers 25% class and 20% method.
+    It alone covers 25% class and 20% method. 
+    
+    DefaultPlayerMapInteraction is very interactive. It interacts with CollisionInteractionMap and 
+    DefaultInteractionMap. It has 0 coverage for other classes. But PlayerCollision test suite has only 
+    interaction with PlayCollisions. It doesn't interact with any other class.
+
+2)  Question 1:
+    But, in your opinion, what are the main disadvantages of such approach?  Explain your reason
+    
+    Mocking interaction between classes is complex and results in test sensitive to implementation details.
+    It also results in over-abstraction and design damage by implementing too many interfaces.
+    Mocking cannot mock constructors or static methods.
+    
+    Question 2:
+    There are occasions in which we should use the class’ concrete implementation and not mockit. In what cases should one mock a class? In what cases should one not mock a class?Hint:  Think about the test level (unit,  integration,  system testing).   You can also read thefollowing paer
+    
+    When a class has too many interaction with external services like a database then its better to mock it. This can 
+    Especially if that class does something dangerous like deletion then it is better to mock. Mock will also prevent 
+    errors of other classes from seeping into our own test cases. 
+    
+    But mocks shouln't be used when multiple classes interact with each other.These interactions are complex to mock.
+    Also mocks need be kept in sync with production code. In case interaction between actual code and some component changess
+    this has to be added to the mocks too. 
+    
