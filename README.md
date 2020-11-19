@@ -107,4 +107,22 @@ Week of October 26:
     But mocks shouln't be used when multiple classes interact with each other.These interactions are complex to mock.
     Also mocks need be kept in sync with production code. In case interaction between actual code and some component changess
     this has to be added to the mocks too. 
+
+
+Week of November 2 Lab 7:
+
+    Exerise 3:
     
+    For system tests you are testing a system as a whole. In scenario 2.4 and 2.5 I tested the system earleir via 
+    unit testing. In those scenarios we mocked ghost, player and pelllet and just checked the collide function. 
+    Thus, the scope of the testing was really small. We were just checking whether setlkiller(ghost_object) was called when colided with player, etc. 
+    But now since we are testing the whole system, we cannot mock any classes. We also have to make use of multiple different classes,
+    like get the square where we expect the player to be at the end then checking whether there is an actual player occupying it or not. 
+    Thus, the scope and complexity has increased in system testing. 
+    
+    Exercise 5:
+    
+    The unit tests for ghost were simple. Mockito helped in mocking objects like ghost, pellet and player. Allthat was needed to be 
+    done was use collision function from PlayerColision. But in system tests we will need to use actual instance of all these components.
+    The bigger problem is that ghost moves automatically. You can't move them in a specific direction. Thus, specific maps need to be made 
+    to enable collision with other items like pellet and player. Thus, due to scope and complexity has increased. 

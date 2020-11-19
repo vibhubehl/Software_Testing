@@ -5,6 +5,7 @@ import jpacman.board.Direction;
 import jpacman.board.Square;
 import jpacman.game.Game;
 import jpacman.level.Player;
+import jpacman.npc.Ghost;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -116,5 +117,70 @@ public class SystemUsertStoryTest {
         // check score
         assertThat(player.getScore()).isEqualTo(0);
         assertThat(sqr.getOccupants().get(0) instanceof Player).isTrue();
+    }
+
+
+
+
+    /**
+     *  Tests for the following scenario
+
+
+     Scenario S2.4: The player dies
+     Given the game has started,
+     and  my Pacman is next to a cell containing a ghost;
+     When  I press an arrow key towards that square;
+     Then  my Pacman dies,
+     and  the game is over.
+     */
+    @Test
+    public void PlayerGhost(){
+        // set map
+        launcher.withMapFile("/winning_ghost.txt");
+        launcher.launch();
+        getGame().start();
+        Player player = getGame().getPlayers().get(0);
+        getGame().move(player, Direction.WEST );
+
+        Square sqr = getGame().getLevel().getBoard().squareAt(1,1);
+
+        // check score
+        assertThat(player.getScore()).isEqualTo(0);
+        assertThat(sqr.getOccupants().get(0) instanceof Ghost).isTrue();
+        assertThat( getGame().isInProgress() ).isFalse();
+        //player is dead
+        assertThat( getGame().getPlayers().get(0).isAlive()).isFalse();
+
+    }
+
+
+    /**
+     *  Tests for the following scenario
+
+
+
+     Scenario S2.5: Player wins, extends S2.1
+     When  I have eaten the last pellet;
+     Then  I win the game.
+     */
+    @Test
+    public void PlayerWinning(){
+        // set map
+        launcher.withMapFile("/winning_ghost.txt");
+        launcher.launch();
+        getGame().start();
+        Player player = getGame().getPlayers().get(0);
+        getGame().move(player, Direction.EAST );
+
+        Square sqr = getGame().getLevel().getBoard().squareAt(3,1);
+
+        // check score
+        assertThat(player.getScore()).isEqualTo(10);
+        assertThat(sqr.getOccupants().get(0) instanceof Player).isTrue();
+        assertThat( getGame().isInProgress() ).isFalse();
+        //player is alive
+        assertThat( getGame().getPlayers().get(0).isAlive()).isTrue();
+        assertThat( getGame().getPlayers().get(0).getScore()).isEqualTo(10);
+
     }
 }
