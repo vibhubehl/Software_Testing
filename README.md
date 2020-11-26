@@ -126,3 +126,14 @@ Week of November 2 Lab 7:
     done was use collision function from PlayerColision. But in system tests we will need to use actual instance of all these components.
     The bigger problem is that ghost moves automatically. You can't move them in a specific direction. Thus, specific maps need to be made 
     to enable collision with other items like pellet and player. Thus, due to scope and complexity has increased. 
+
+
+#### Lab 8
+
+2)  |   |   |   |   |   |   |
+    |---|---|---|---|---|---|
+    |               | Player Collides Pellet    | Player Collides Ghost   | Start Button Clicked  | Stop Button Clicked    | Last pellet eaten      | 
+    | Game Won      |                           |                         |                       |                        |                        |   
+    | Game Lost     |                           |                         |                         |                       |                       |
+    | In Progress   | In Progress               | Game Lost               |                         |  Moves Suspended     | Game Won               | 
+    | Moves Suspended  |                        |                         |  In Progress            |                        |                       |
