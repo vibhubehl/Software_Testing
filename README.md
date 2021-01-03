@@ -1,5 +1,7 @@
 # JPacman
 
+## This repo  consists of labwork done of Software Testing class (SENG 275) at Uvic. 
+
 
 ## About
 
